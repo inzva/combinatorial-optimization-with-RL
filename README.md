@@ -9,7 +9,8 @@ trained to learn such heuristics automatically via reinforcement learning, and p
 
 - Batuhan Koyuncu 
 - Furkan Gürsoy - [furkangursoy.github.io](http://furkangursoy.github.io)
-- Sercan Amaç
+
+*We also thank Sercan Amaç for his contribution.
 
 
 ###
