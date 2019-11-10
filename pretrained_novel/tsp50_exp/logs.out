@@ -1,0 +1,66 @@
+  0%|          | 0/10 [00:00<?, ?it/s]{'baseline': 'rollout',
+ 'batch_size': 512,
+ 'bl_alpha': 0.05,
+ 'bl_warmup_epochs': 1,
+ 'checkpoint_encoder': False,
+ 'checkpoint_epochs': 1,
+ 'data_distribution': None,
+ 'embedding_dim': 128,
+ 'epoch_size': 1280000,
+ 'epoch_start': 0,
+ 'eval_batch_size': 1024,
+ 'eval_only': False,
+ 'exp_beta': 0.8,
+ 'graph_size': 20,
+ 'hidden_dim': 128,
+ 'load_path': None,
+ 'log_dir': 'logs',
+ 'log_step': 50,
+ 'lr_critic': 0.0001,
+ 'lr_decay': 1.0,
+ 'lr_model': 0.0001,
+ 'max_grad_norm': 1.0,
+ 'model': 'attention',
+ 'n_encode_layers': 3,
+ 'n_epochs': 100,
+ 'no_cuda': False,
+ 'no_progress_bar': False,
+ 'no_tensorboard': False,
+ 'normalization': 'batch',
+ 'output_dir': 'outputs',
+ 'problem': 'tsp',
+ 'resume': None,
+ 'run_name': 'tsp20_rollout_batu_fgtry_20191101T201613',
+ 'save_dir': 'outputs/tsp_20/tsp20_rollout_batu_fgtry_20191101T201613',
+ 'seed': 1234,
+ 'shrink_size': None,
+ 'tanh_clipping': 10.0,
+ 'use_cuda': True,
+ 'val_dataset': None,
+ 'val_size': 10000}
+Evaluating baseline model on evaluation dataset
+Traceback (most recent call last):
+  File "run.py", line 172, in <module>
+    run(get_options())
+  File "run.py", line 104, in run
+    baseline = RolloutBaseline(model, problem, opts)
+  File "/data/team4/batu_attention/attention-learn-to-route/reinforce_baselines.py", line 151, in __init__
+    self._update_model(model, epoch)
+  File "/data/team4/batu_attention/attention-learn-to-route/reinforce_baselines.py", line 171, in _update_model
+    self.bl_vals = rollout(self.model, self.dataset, self.opts).cpu().numpy()
+  File "/data/team4/batu_attention/attention-learn-to-route/train.py", line 43, in rollout
+    in tqdm(DataLoader(dataset, batch_size=opts.eval_batch_size), disable=opts.no_progress_bar)
+  File "/data/team4/batu_attention/attention-learn-to-route/train.py", line 42, in <listcomp>
+    for bat
+  File "/data/team4/batu_attention/attention-learn-to-route/train.py", line 37, in eval_model_bat
+    cost, _ = model(move_to(bat, opts.device))
+  File "/data/miniconda3/lib/python3.7/site-packages/torch/nn/modules/module.py", line 547, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/data/team4/batu_attention/attention-learn-to-route/nets/attention_model.py", line 137, in forward
+    embeddings, _ = self.embedder(self._init_embed(input))
+  File "/data/miniconda3/lib/python3.7/site-packages/torch/nn/modules/module.py", line 547, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/data/team4/batu_attention/attention-learn-to-route/nets/graph_encoder.py", line 214, in forward
+    hnew = (torch.matmul(outputs.T,self.weights)).T
+RuntimeError: size mismatch, m1: [2560 x 3072], m2: [3 x 1] at /opt/conda/conda-bld/pytorch_1565272271120/work/aten/src/THC/generic/THCTensorMathBlas.cu:273
+
