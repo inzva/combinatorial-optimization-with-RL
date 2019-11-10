@@ -13,7 +13,7 @@ trained to learn such heuristics automatically via reinforcement learning, and p
 
 \**Both contributed equally.*
 
-\*\**We also thank Sercan Amaç for contributing.*
+\*\**We also thank Sercan Amaç for his contributions.*
 
 
 ### More information
